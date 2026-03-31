@@ -1,0 +1,96 @@
+// ============================================================
+// HARRY POTTER — VARIÁVEIS SASS
+// ============================================================
+
+// --- Cores Principais ---
+$color-gold:          #D3A625;
+$color-gold-light:    #F0C040;
+$color-gold-dark:     #A07820;
+$color-dark:          #0A0A0F;
+$color-dark-2:        #12121A;
+$color-dark-3:        #1A1A28;
+$color-dark-4:        #22223A;
+$color-parchment:     #F5E6C8;
+$color-parchment-2:   #EDD9A3;
+$color-cream:         #FFF8E7;
+$color-white:         #FFFFFF;
+$color-gray:          #9A9AAA;
+$color-gray-light:    #C8C8D8;
+
+// --- Cores das Casas ---
+$gryffindor-red:      #740001;
+$gryffindor-gold:     #D3A625;
+$slytherin-green:     #1A472A;
+$slytherin-silver:    #AAAAAA;
+$ravenclaw-blue:      #0E1A40;
+$ravenclaw-bronze:    #946B2D;
+$hufflepuff-yellow:   #ECB939;
+$hufflepuff-black:    #372E29;
+
+// --- Tipografia ---
+$font-display:        'Cinzel', serif;
+$font-body:           'Crimson Text', serif;
+$font-mono:           'Courier New', monospace;
+
+$font-size-xs:        0.75rem;
+$font-size-sm:        0.875rem;
+$font-size-base:      1rem;
+$font-size-md:        1.125rem;
+$font-size-lg:        1.25rem;
+$font-size-xl:        1.5rem;
+$font-size-2xl:       2rem;
+$font-size-3xl:       2.5rem;
+$font-size-4xl:       3.5rem;
+$font-size-5xl:       5rem;
+$font-size-hero:      7rem;
+
+// --- Espaçamentos ---
+$spacing-xs:          0.25rem;
+$spacing-sm:          0.5rem;
+$spacing-md:          1rem;
+$spacing-lg:          1.5rem;
+$spacing-xl:          2rem;
+$spacing-2xl:         3rem;
+$spacing-3xl:         4rem;
+$spacing-4xl:         6rem;
+$spacing-5xl:         8rem;
+
+// --- Bordas ---
+$border-radius-sm:    4px;
+$border-radius-md:    8px;
+$border-radius-lg:    16px;
+$border-radius-xl:    24px;
+$border-radius-full:  9999px;
+
+// --- Sombras ---
+$shadow-sm:           0 2px 8px rgba(0, 0, 0, 0.3);
+$shadow-md:           0 4px 20px rgba(0, 0, 0, 0.5);
+$shadow-lg:           0 8px 40px rgba(0, 0, 0, 0.7);
+$shadow-gold:         0 0 20px rgba(211, 166, 37, 0.4);
+$shadow-gold-lg:      0 0 40px rgba(211, 166, 37, 0.6);
+
+// --- Transições ---
+$transition-fast:     0.15s ease;
+$transition-base:     0.3s ease;
+$transition-slow:     0.6s ease;
+$transition-bounce:   0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// --- Z-Index ---
+$z-base:              1;
+$z-dropdown:          100;
+$z-sticky:            200;
+$z-fixed:             300;
+$z-modal:             400;
+$z-toast:             500;
+
+// --- Breakpoints ---
+$bp-xs:               480px;
+$bp-sm:               640px;
+$bp-md:               768px;
+$bp-lg:               1024px;
+$bp-xl:               1280px;
+$bp-2xl:              1536px;
+
+// --- Container ---
+$container-max:       1200px;
+$container-padding:   1.5rem;

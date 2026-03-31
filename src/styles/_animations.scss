@@ -1,0 +1,177 @@
+// ============================================================
+// HARRY POTTER — ANIMAÇÕES SASS
+// ============================================================
+
+// --- Fade In Up ---
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// --- Fade In Down ---
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// --- Fade In ---
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+// --- Scale In ---
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// --- Flutuação Mágica ---
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(1deg); }
+  66%       { transform: translateY(-6px) rotate(-1deg); }
+}
+
+// --- Pulsar Brilho ---
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba($color-gold, 0.3),
+                0 0 20px rgba($color-gold, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba($color-gold, 0.7),
+                0 0 50px rgba($color-gold, 0.3);
+  }
+}
+
+// --- Pulsar Texto ---
+@keyframes pulse-text {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+// --- Rotação Lenta ---
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+// --- Raio / Lightning ---
+@keyframes lightning {
+  0%, 90%, 100% { opacity: 0; }
+  5%, 15%       { opacity: 0.8; }
+  10%           { opacity: 0.3; }
+}
+
+// --- Partícula Flutuante ---
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(var(--drift, 20px)) scale(1);
+    opacity: 0;
+  }
+}
+
+// --- Shimmer (Brilho Deslizante) ---
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+// --- Scroll Bounce ---
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(8px); opacity: 0.5; }
+}
+
+// --- Wand Sparkle ---
+@keyframes wand-sparkle {
+  0%   { transform: scale(1) rotate(0deg); opacity: 1; }
+  50%  { transform: scale(1.3) rotate(180deg); opacity: 0.7; }
+  100% { transform: scale(1) rotate(360deg); opacity: 1; }
+}
+
+// --- Slide In Left ---
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// --- Slide In Right ---
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// --- Typing Cursor ---
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+// --- Stars Twinkle ---
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%       { opacity: 1; transform: scale(1.2); }
+}
+
+// --- Border Glow Rotate ---
+@keyframes border-glow {
+  0%   { border-color: rgba($color-gold, 0.2); }
+  50%  { border-color: rgba($color-gold, 0.8); }
+  100% { border-color: rgba($color-gold, 0.2); }
+}
+
+// --- Hero Title Reveal ---
+@keyframes title-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) skewY(5deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) skewY(0deg);
+    filter: blur(0);
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "harry-potter-landing",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "npx gulp build",
+    "vercel-build": "npx gulp build", 
+    "dev": "npx gulp dev",
+    "start": "npx gulp build",
+    "styles": "gulp styles",
+    "scripts": "gulp scripts",
+    "clean": "gulp clean"
+  },
+  "keywords": [
+    "harry-potter",
+    "landing-page",
+    "gulp",
+    "sass",
+    "javascript"
+  ],
+  "author": "Harry Potter Fan",
+  "license": "MIT",
+  "description": "Landing page temática de Harry Potter com Gulp, Sass, HTML e JavaScript",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.1",
+    "gulp-autoprefixer": "^10.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^9.2.0",
+    "gulp-rename": "^2.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.98.0"
+  }
+}

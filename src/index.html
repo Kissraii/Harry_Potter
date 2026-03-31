@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bem-vindo ao mundo mágico de Harry Potter. Descubra Hogwarts, as casas, personagens e muito mais." />
+  <title>Harry Potter — O Mundo Mágico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">
+        <span class="nav__logo-icon">⚡</span>
+        <span class="nav__logo-text">Harry Potter</span>
+      </a>
+      <ul class="nav__list" id="navList">
+        <li class="nav__item"><a href="#about" class="nav__link">O Mundo</a></li>
+        <li class="nav__item"><a href="#houses" class="nav__link">Casas</a></li>
+        <li class="nav__item"><a href="#characters" class="nav__link">Personagens</a></li>
+        <li class="nav__item"><a href="#spells" class="nav__link">Feitiços</a></li>
+        <li class="nav__item"><a href="#books" class="nav__link">Livros</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero__particles" id="particles"></div>
+    <div class="hero__content container">
+      <p class="hero__subtitle">Bem-vindo ao</p>
+      <h1 class="hero__title">
+        <span class="hero__title--line1">Mundo</span>
+        <span class="hero__title--line2">Mágico</span>
+      </h1>
+      <p class="hero__description">
+        Onde a magia é real, a coragem define heróis e a amizade supera qualquer feitiço das trevas.
+      </p>
+      <div class="hero__actions">
+        <a href="#about" class="btn btn--primary">
+          <span class="btn__text">Explorar Hogwarts</span>
+          <span class="btn__icon">✨</span>
+        </a>
+        <a href="#houses" class="btn btn--outline">
+          <span class="btn__text">Descobrir sua Casa</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll-indicator">
+      <span class="hero__scroll-text">Role para baixo</span>
+      <div class="hero__scroll-arrow"></div>
+    </div>
+    <div class="hero__lightning" id="lightning"></div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">O Universo</span>
+        <h2 class="section__title">Hogwarts School of<br/>Witchcraft and Wizardry</h2>
+        <p class="section__subtitle">
+          Fundada há mais de mil anos pelos quatro maiores bruxos da era, Hogwarts é o lar de gerações de estudantes de magia.
+        </p>
+      </div>
+      <div class="about__grid">
+        <div class="about__card" data-aos="fade-up">
+          <div class="about__card-icon">🏰</div>
+          <h3 class="about__card-title">O Castelo</h3>
+          <p class="about__card-text">
+            Localizado nas Terras Altas da Escócia, o castelo de Hogwarts abriga corredores encantados, escadas móveis e segredos milenares esperando para serem descobertos.
+          </p>
+        </div>
+        <div class="about__card" data-aos="fade-up" data-aos-delay="100">
+          <div class="about__card-icon">📜</div>
+          <h3 class="about__card-title">A Carta</h3>
+          <p class="about__card-text">
+            Ao completar 11 anos, bruxos e bruxas recebem sua carta de admissão entregue por corujas. O início de uma jornada que mudará suas vidas para sempre.
+          </p>
+        </div>
+        <div class="about__card" data-aos="fade-up" data-aos-delay="200">
+          <div class="about__card-icon">🦉</div>
+          <h3 class="about__card-title">A Coruja</h3>
+          <p class="about__card-text">
+            Mensageiras fiéis do mundo bruxo, as corujas carregam correspondências e são companheiras inseparáveis dos estudantes de Hogwarts ao longo de sua formação.
+          </p>
+        </div>
+        <div class="about__card" data-aos="fade-up" data-aos-delay="300">
+          <div class="about__card-icon">⚗️</div>
+          <h3 class="about__card-title">As Disciplinas</h3>
+          <p class="about__card-text">
+            De Poções a Defesa Contra as Artes das Trevas, os alunos aprendem dezenas de disciplinas mágicas ministradas por professores excêntricos e brilhantes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOUSES ===================== -->
+  <section class="houses section" id="houses">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">As Quatro Casas</span>
+        <h2 class="section__title">Onde você pertence?</h2>
+        <p class="section__subtitle">
+          O Chapéu Seletor avalia suas qualidades mais profundas e decide em qual das quatro nobres casas você será acolhido.
+        </p>
+      </div>
+      <div class="houses__grid">
+
+        <div class="house-card house-card--gryffindor" data-house="gryffindor">
+          <div class="house-card__crest">
+            <span class="house-card__animal">🦁</span>
+          </div>
+          <div class="house-card__content">
+            <h3 class="house-card__name">Grifinória</h3>
+            <p class="house-card__founder">Fundadora: Godric Gryffindor</p>
+            <p class="house-card__traits">Coragem · Bravura · Determinação · Cavalaria</p>
+            <div class="house-card__colors">
+              <span class="house-card__color" style="background:#740001"></span>
+              <span class="house-card__color" style="background:#D3A625"></span>
+            </div>
+            <p class="house-card__quote">"Onde moram os corajosos de coração"</p>
+          </div>
+        </div>
+
+        <div class="house-card house-card--slytherin" data-house="slytherin">
+          <div class="house-card__crest">
+            <span class="house-card__animal">🐍</span>
+          </div>
+          <div class="house-card__content">
+            <h3 class="house-card__name">Sonserina</h3>
+            <p class="house-card__founder">Fundador: Salazar Slytherin</p>
+            <p class="house-card__traits">Astúcia · Ambição · Liderança · Esperteza</p>
+            <div class="house-card__colors">
+              <span class="house-card__color" style="background:#1A472A"></span>
+              <span class="house-card__color" style="background:#AAAAAA"></span>
+            </div>
+            <p class="house-card__quote">"Onde os grandes alcançam a grandeza"</p>
+          </div>
+        </div>
+
+        <div class="house-card house-card--ravenclaw" data-house="ravenclaw">
+          <div class="house-card__crest">
+            <span class="house-card__animal">🦅</span>
+          </div>
+          <div class="house-card__content">
+            <h3 class="house-card__name">Corvinal</h3>
+            <p class="house-card__founder">Fundadora: Rowena Ravenclaw</p>
+            <p class="house-card__traits">Inteligência · Sabedoria · Criatividade · Aprendizado</p>
+            <div class="house-card__colors">
+              <span class="house-card__color" style="background:#0E1A40"></span>
+              <span class="house-card__color" style="background:#946B2D"></span>
+            </div>
+            <p class="house-card__quote">"Onde os sábios encontram seu lar"</p>
+          </div>
+        </div>
+
+        <div class="house-card house-card--hufflepuff" data-house="hufflepuff">
+          <div class="house-card__crest">
+            <span class="house-card__animal">🦡</span>
+          </div>
+          <div class="house-card__content">
+            <h3 class="house-card__name">Lufa-Lufa</h3>
+            <p class="house-card__founder">Fundadora: Helga Hufflepuff</p>
+            <p class="house-card__traits">Lealdade · Paciência · Trabalho duro · Justiça</p>
+            <div class="house-card__colors">
+              <span class="house-card__color" style="background:#ECB939"></span>
+              <span class="house-card__color" style="background:#372E29"></span>
+            </div>
+            <p class="house-card__quote">"Onde os leais e honestos prosperam"</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CHARACTERS ===================== -->
+  <section class="characters section" id="characters">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Personagens Icônicos</span>
+        <h2 class="section__title">Os Protagonistas da Saga</h2>
+        <p class="section__subtitle">
+          Conheça os personagens que definiram gerações e tornaram o mundo bruxo inesquecível.
+        </p>
+      </div>
+      <div class="characters__slider" id="charactersSlider">
+        <div class="characters__track" id="charactersTrack">
+
+          <div class="character-card">
+            <div class="character-card__avatar">⚡</div>
+            <h3 class="character-card__name">Harry Potter</h3>
+            <p class="character-card__house house--gryffindor">Grifinória</p>
+            <p class="character-card__desc">O Menino que Sobreviveu. Escolhido pelo destino para enfrentar o maior bruxo das trevas de todos os tempos.</p>
+            <p class="character-card__wand">🪄 Azevinho e pena de fênix — 28cm</p>
+          </div>
+
+          <div class="character-card">
+            <div class="character-card__avatar">📚</div>
+            <h3 class="character-card__name">Hermione Granger</h3>
+            <p class="character-card__house house--gryffindor">Grifinória</p>
+            <p class="character-card__desc">A bruxa mais brilhante de sua geração. Sua inteligência e dedicação foram fundamentais para a vitória contra Voldemort.</p>
+            <p class="character-card__wand">🪄 Madeira de videira e fibra de coração de dragão — 27cm</p>
+          </div>
+
+          <div class="character-card">
+            <div class="character-card__avatar">♟️</div>
+            <h3 class="character-card__name">Ron Weasley</h3>
+            <p class="character-card__house house--gryffindor">Grifinória</p>
+            <p class="character-card__desc">Leal, corajoso e engraçado. O melhor amigo de Harry, cuja família acolheu o jovem bruxo como um de seus filhos.</p>
+            <p class="character-card__wand">🪄 Salgueiro e pelo de cauda de unicórnio — 35cm</p>
+          </div>
+
+          <div class="character-card">
+            <div class="character-card__avatar">🐍</div>
+            <h3 class="character-card__name">Draco Malfoy</h3>
+            <p class="character-card__house house--slytherin">Sonserina</p>
+            <p class="character-card__desc">Rival de Harry e estudante ambicioso de Sonserina. Sua trajetória revela a complexidade entre escolha e destino.</p>
+            <p class="character-card__wand">🪄 Espinheiro-branco e pelo de cauda de unicórnio — 25cm</p>
+          </div>
+
+          <div class="character-card">
+            <div class="character-card__avatar">🌙</div>
+            <h3 class="character-card__name">Luna Lovegood</h3>
+            <p class="character-card__house house--ravenclaw">Corvinal</p>
+            <p class="character-card__desc">Excêntrica, sonhadora e profundamente sábia. Luna enxerga o mundo de forma única e é uma aliada indispensável.</p>
+            <p class="character-card__wand">🪄 Madeira de salgueiro e pelo de cauda de lebre — 23cm</p>
+          </div>
+
+          <div class="character-card">
+            <div class="character-card__avatar">💛</div>
+            <h3 class="character-card__name">Neville Longbottom</h3>
+            <p class="character-card__house house--gryffindor">Grifinória</p>
+            <p class="character-card__desc">Tímido no início, tornou-se um dos heróis mais corajosos da Batalha de Hogwarts. A prova de que a bravura cresce com o tempo.</p>
+            <p class="character-card__wand">🪄 Cerejeira e pelo de unicórnio — 33cm</p>
+          </div>
+
+        </div>
+        <div class="characters__controls">
+          <button class="characters__btn characters__btn--prev" id="charPrev" aria-label="Anterior">&#8592;</button>
+          <div class="characters__dots" id="charDots"></div>
+          <button class="characters__btn characters__btn--next" id="charNext" aria-label="Próximo">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SPELLS ===================== -->
+  <section class="spells section" id="spells">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Feitiços Mágicos</span>
+        <h2 class="section__title">Os Encantamentos Mais Poderosos</h2>
+        <p class="section__subtitle">
+          Clique em cada feitiço para descobrir seus efeitos e como são utilizados no mundo bruxo.
+        </p>
+      </div>
+      <div class="spells__grid">
+
+        <div class="spell-card" data-spell="expelliarmus">
+          <div class="spell-card__glow"></div>
+          <span class="spell-card__icon">💫</span>
+          <h3 class="spell-card__name">Expelliarmus</h3>
+          <p class="spell-card__type">Encantamento de Desarmamento</p>
+          <div class="spell-card__info">
+            <p>Desarma o oponente, fazendo sua varinha voar de sua mão. O feitiço favorito de Harry Potter, usado decisivamente na batalha final contra Voldemort.</p>
+          </div>
+        </div>
+
+        <div class="spell-card" data-spell="lumos">
+          <div class="spell-card__glow"></div>
+          <span class="spell-card__icon">💡</span>
+          <h3 class="spell-card__name">Lumos</h3>
+          <p class="spell-card__type">Feitiço de Luz</p>
+          <div class="spell-card__info">
+            <p>Acende a ponta da varinha, iluminando ambientes escuros. Um dos feitiços mais básicos ensinados em Hogwarts, mas de utilidade inestimável.</p>
+          </div>
+        </div>
+
+        <div class="spell-card" data-spell="alohomora">
+          <div class="spell-card__glow"></div>
+          <span class="spell-card__icon">🔓</span>
+          <h3 class="spell-card__name">Alohomora</h3>
+          <p class="spell-card__type">Feitiço de Destrancamento</p>
+          <div class="spell-card__info">
+            <p>Abre portas e janelas trancadas. Hermione usou este feitiço no primeiro ano para ajudar Harry e Ron a escaparem de Filch e seu gato.</p>
+          </div>
+        </div>
+
+        <div class="spell-card" data-spell="patronus">
+          <div class="spell-card__glow"></div>
+          <span class="spell-card__icon">🦌</span>
+          <h3 class="spell-card__name">Expecto Patronum</h3>
+          <p class="spell-card__type">Encantamento do Patrono</p>
+          <div class="spell-card__info">
+            <p>Conjura um guardião de luz que afasta os Dementadores. Requer uma memória feliz poderosa. O Patrono de Harry é um cervo prateado, como o de seu pai.</p>
+          </div>
+        </div>
+
+        <div class="spell-card" data-spell="wingardium">
+          <div class="spell-card__glow"></div>
+          <span class="spell-card__icon">🪶</span>
+          <h3 class="spell-card__name">Wingardium Leviosa</h3>
+          <p class="spell-card__type">Feitiço de Levitação</p>
+          <div class="spell-card__info">
+            <p>Levita objetos no ar. Famoso pela correção de Hermione a Ron: "É Levi-O-sa, não Levio-SA!" Um dos primeiros feitiços ensinados em Hogwarts.</p>
+          </div>
+        </div>
+
+        <div class="spell-card" data-spell="avada">
+          <div class="spell-card__glow"></div>
+          <span class="spell-card__icon">☠️</span>
+          <h3 class="spell-card__name">Avada Kedavra</h3>
+          <p class="spell-card__type">Maldição Imperdoável</p>
+          <div class="spell-card__info">
+            <p>A mais temida das três Maldições Imperdoáveis. Causa morte instantânea e não pode ser bloqueada por magia comum. Apenas o amor puro pode vencê-la.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BOOKS ===================== -->
+  <section class="books section" id="books">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">A Saga Literária</span>
+        <h2 class="section__title">Os Sete Volumes da Saga</h2>
+        <p class="section__subtitle">
+          J.K. Rowling criou uma das séries mais vendidas de todos os tempos, com mais de 500 milhões de cópias vendidas em todo o mundo.
+        </p>
+      </div>
+      <div class="books__timeline">
+
+        <div class="book-item" data-year="1997">
+          <div class="book-item__number">I</div>
+          <div class="book-item__content">
+            <span class="book-item__year">1997</span>
+            <h3 class="book-item__title">A Pedra Filosofal</h3>
+            <p class="book-item__desc">Harry descobre ser um bruxo e ingressa em Hogwarts, onde faz amigos, descobre segredos e enfrenta pela primeira vez o poder das trevas.</p>
+          </div>
+        </div>
+
+        <div class="book-item" data-year="1998">
+          <div class="book-item__number">II</div>
+          <div class="book-item__content">
+            <span class="book-item__year">1998</span>
+            <h3 class="book-item__title">A Câmara Secreta</h3>
+            <p class="book-item__desc">Uma câmara proibida é reaberta em Hogwarts e estudantes são petrificados. Harry descobre poderes que o assustam e enfrenta um inimigo do passado.</p>
+          </div>
+        </div>
+
+        <div class="book-item" data-year="1999">
+          <div class="book-item__number">III</div>
+          <div class="book-item__content">
+            <span class="book-item__year">1999</span>
+            <h3 class="book-item__title">O Prisioneiro de Azkaban</h3>
+            <p class="book-item__desc">Um prisioneiro perigoso foge de Azkaban. Harry aprende sobre seu passado, conhece novos aliados e descobre que nem tudo é o que parece.</p>
+          </div>
+        </div>
+
+        <div class="book-item" data-year="2000">
+          <div class="book-item__number">IV</div>
+          <div class="book-item__content">
+            <span class="book-item__year">2000</span>
+            <h3 class="book-item__title">O Cálice de Fogo</h3>
+            <p class="book-item__desc">Harry é misteriosamente inscrito no Torneio Tribruxo. Ao final, enfrenta Voldemort em carne e osso pela primeira vez desde sua infância.</p>
+          </div>
+        </div>
+
+        <div class="book-item" data-year="2003">
+          <div class="book-item__number">V</div>
+          <div class="book-item__content">
+            <span class="book-item__year">2003</span>
+            <h3 class="book-item__title">A Ordem da Fênix</h3>
+            <p class="book-item__desc">Harry luta contra a incredulidade do mundo bruxo enquanto Voldemort se fortalece. A batalha no Ministério da Magia muda tudo para sempre.</p>
+          </div>
+        </div>
+
+        <div class="book-item" data-year="2005">
+          <div class="book-item__number">VI</div>
+          <div class="book-item__content">
+            <span class="book-item__year">2005</span>
+            <h3 class="book-item__title">O Enigma do Príncipe</h3>
+            <p class="book-item__desc">Harry descobre os segredos do passado de Voldemort e os Horcruxes. Uma perda devastadora prepara o terreno para o confronto final.</p>
+          </div>
+        </div>
+
+        <div class="book-item" data-year="2007">
+          <div class="book-item__number">VII</div>
+          <div class="book-item__content">
+            <span class="book-item__year">2007</span>
+            <h3 class="book-item__title">As Relíquias da Morte</h3>
+            <p class="book-item__desc">A batalha final chegou. Harry, Hermione e Ron partem em uma jornada perigosa para destruir os Horcruxes e encerrar o reinado do terror de Voldemort.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== QUOTE ===================== -->
+  <section class="quote-section">
+    <div class="container">
+      <div class="quote-section__content">
+        <div class="quote-section__wand">🪄</div>
+        <blockquote class="quote-section__text">
+          "A felicidade pode ser encontrada mesmo nas horas mais sombrias, se apenas alguém se lembrar de acender a luz."
+        </blockquote>
+        <cite class="quote-section__author">— Albus Dumbledore</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="cta section">
+    <div class="container">
+      <div class="cta__content">
+        <span class="cta__tag">Junte-se ao Mundo Mágico</span>
+        <h2 class="cta__title">Sua Carta de Hogwarts Chegou</h2>
+        <p class="cta__desc">
+          A aventura começa com uma escolha. Abra a carta, pegue sua varinha e embarque na jornada mais extraordinária que você já viveu.
+        </p>
+        <form class="cta__form" id="ctaForm">
+          <div class="cta__form-group">
+            <input type="text" class="cta__input" id="ctaName" placeholder="Seu nome completo" required />
+          </div>
+          <div class="cta__form-group">
+            <input type="email" class="cta__input" id="ctaEmail" placeholder="Seu endereço de e-mail" required />
+          </div>
+          <button type="submit" class="btn btn--primary cta__submit">
+            <span class="btn__text">Receber minha Carta</span>
+            <span class="btn__icon">📜</span>
+          </button>
+        </form>
+        <div class="cta__success" id="ctaSuccess">
+          <span class="cta__success-icon">✨</span>
+          <p>Sua carta foi enviada! Aguarde a coruja mensageira.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="footer__logo">
+            <span>⚡</span> Harry Potter
+          </a>
+          <p class="footer__tagline">
+            "Não importa o que aconteça, você não está sozinho."
+          </p>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__title">Explorar</h4>
+          <ul>
+            <li><a href="#about">O Mundo</a></li>
+            <li><a href="#houses">Casas</a></li>
+            <li><a href="#characters">Personagens</a></li>
+            <li><a href="#spells">Feitiços</a></li>
+            <li><a href="#books">Livros</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4 class="footer__title">Casas</h4>
+          <ul>
+            <li><a href="#houses">🦁 Grifinória</a></li>
+            <li><a href="#houses">🐍 Sonserina</a></li>
+            <li><a href="#houses">🦅 Corvinal</a></li>
+            <li><a href="#houses">🦡 Lufa-Lufa</a></li>
+          </ul>
+        </div>
+        <div class="footer__newsletter">
+          <h4 class="footer__title">Feitiço do Dia</h4>
+          <p class="footer__spell" id="spellOfDay">Carregando feitiço...</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2024 Harry Potter Landing Page. Criado com magia e ✨ Gulp + Sass.</p>
+        <p class="footer__disclaimer">Harry Potter é propriedade de J.K. Rowling e Warner Bros. Este é um projeto fan-made sem fins comerciais.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo">⚡</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

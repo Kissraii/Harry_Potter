@@ -1,0 +1,860 @@
+// ============================================================
+// HARRY POTTER — SEÇÕES DE CONTEÚDO
+// ============================================================
+
+// ========================
+// ABOUT
+// ========================
+.about {
+  background: $color-dark-2;
+  position: relative;
+
+  &::before {
+    content: '';
+    @include absolute-fill;
+    background: radial-gradient(ellipse at 50% 100%, rgba($color-gold, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  &__grid {
+    @include grid(4, $spacing-xl);
+
+    @include respond-to('xl') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('sm') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    @include card-base;
+    padding: $spacing-2xl;
+    text-align: center;
+
+    &-icon {
+      font-size: 3rem;
+      margin-bottom: $spacing-lg;
+      display: block;
+      animation: float 6s ease-in-out infinite;
+
+      @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{($i - 1) * 0.5}s;
+        }
+      }
+    }
+
+    &-title {
+      @include heading($font-size-lg);
+      color: $color-gold;
+      margin-bottom: $spacing-md;
+    }
+
+    &-text {
+      @include body-text;
+      color: $color-gray-light;
+    }
+  }
+}
+
+// ========================
+// HOUSES
+// ========================
+.houses {
+  background: $color-dark;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    @include absolute-fill;
+    background:
+      radial-gradient(ellipse at 0% 50%, rgba($gryffindor-red, 0.08) 0%, transparent 40%),
+      radial-gradient(ellipse at 100% 50%, rgba($slytherin-green, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  &__grid {
+    @include grid(4, $spacing-xl);
+
+    @include respond-to('xl') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('sm') {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.house-card {
+  position: relative;
+  border-radius: $border-radius-xl;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all $transition-slow;
+  border: 1px solid rgba($color-gold, 0.1);
+
+  &::before {
+    content: '';
+    @include absolute-fill;
+    opacity: 0.05;
+    transition: opacity $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+
+    &::before {
+      opacity: 0.12;
+    }
+
+    .house-card__crest {
+      transform: scale(1.15) rotate(5deg);
+    }
+  }
+
+  &__crest {
+    padding: $spacing-2xl;
+    text-align: center;
+    transition: transform $transition-bounce;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__animal {
+    font-size: 4rem;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+  }
+
+  &__content {
+    padding: $spacing-xl $spacing-xl $spacing-2xl;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__name {
+    @include heading($font-size-xl);
+    margin-bottom: $spacing-xs;
+  }
+
+  &__founder {
+    font-family: $font-display;
+    font-size: $font-size-xs;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-gray;
+    margin-bottom: $spacing-md;
+  }
+
+  &__traits {
+    @include body-text($font-size-sm);
+    color: $color-gray-light;
+    margin-bottom: $spacing-lg;
+    font-style: italic;
+  }
+
+  &__colors {
+    @include flex(row, flex-start, center);
+    gap: $spacing-sm;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__color {
+    width: 24px;
+    height: 24px;
+    border-radius: $border-radius-full;
+    border: 2px solid rgba($color-white, 0.2);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  &__quote {
+    @include body-text($font-size-sm);
+    font-style: italic;
+    color: rgba($color-parchment, 0.7);
+    border-top: 1px solid rgba($color-white, 0.1);
+    padding-top: $spacing-md;
+  }
+
+  // Variantes por casa
+  &--gryffindor {
+    background: linear-gradient(160deg, rgba($gryffindor-red, 0.4) 0%, rgba($color-dark-3, 0.95) 50%);
+    border-color: rgba($gryffindor-red, 0.3);
+
+    &::before {
+      background: radial-gradient(ellipse at 50% 0%, $gryffindor-red, transparent);
+    }
+
+    .house-card__name { color: $gryffindor-gold; }
+
+    &:hover {
+      border-color: $gryffindor-gold;
+      box-shadow: 0 20px 60px rgba($gryffindor-red, 0.3), 0 0 30px rgba($gryffindor-gold, 0.2);
+    }
+  }
+
+  &--slytherin {
+    background: linear-gradient(160deg, rgba($slytherin-green, 0.4) 0%, rgba($color-dark-3, 0.95) 50%);
+    border-color: rgba($slytherin-green, 0.3);
+
+    &::before {
+      background: radial-gradient(ellipse at 50% 0%, $slytherin-green, transparent);
+    }
+
+    .house-card__name { color: $slytherin-silver; }
+
+    &:hover {
+      border-color: $slytherin-silver;
+      box-shadow: 0 20px 60px rgba($slytherin-green, 0.3), 0 0 30px rgba($slytherin-silver, 0.2);
+    }
+  }
+
+  &--ravenclaw {
+    background: linear-gradient(160deg, rgba($ravenclaw-blue, 0.6) 0%, rgba($color-dark-3, 0.95) 50%);
+    border-color: rgba($ravenclaw-blue, 0.5);
+
+    &::before {
+      background: radial-gradient(ellipse at 50% 0%, $ravenclaw-blue, transparent);
+    }
+
+    .house-card__name { color: $ravenclaw-bronze; }
+
+    &:hover {
+      border-color: $ravenclaw-bronze;
+      box-shadow: 0 20px 60px rgba($ravenclaw-blue, 0.4), 0 0 30px rgba($ravenclaw-bronze, 0.2);
+    }
+  }
+
+  &--hufflepuff {
+    background: linear-gradient(160deg, rgba($hufflepuff-yellow, 0.2) 0%, rgba($color-dark-3, 0.95) 50%);
+    border-color: rgba($hufflepuff-yellow, 0.2);
+
+    &::before {
+      background: radial-gradient(ellipse at 50% 0%, rgba($hufflepuff-yellow, 0.5), transparent);
+    }
+
+    .house-card__name { color: $hufflepuff-yellow; }
+
+    &:hover {
+      border-color: $hufflepuff-yellow;
+      box-shadow: 0 20px 60px rgba($hufflepuff-yellow, 0.2), 0 0 30px rgba($hufflepuff-yellow, 0.15);
+    }
+  }
+}
+
+// ========================
+// CHARACTERS
+// ========================
+.characters {
+  background: $color-dark-2;
+  overflow: hidden;
+
+  &__slider {
+    position: relative;
+  }
+
+  &__track {
+    @include flex(row, flex-start, stretch);
+    gap: $spacing-xl;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: $spacing-lg;
+    @include custom-scrollbar;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+  }
+
+  &__controls {
+    @include flex(row, center, center);
+    gap: $spacing-xl;
+    margin-top: $spacing-2xl;
+  }
+
+  &__btn {
+    width: 48px;
+    height: 48px;
+    border-radius: $border-radius-full;
+    background: rgba($color-gold, 0.1);
+    border: 1px solid rgba($color-gold, 0.3);
+    color: $color-gold;
+    font-size: $font-size-xl;
+    @include flex-center;
+    transition: all $transition-base;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba($color-gold, 0.2);
+      border-color: $color-gold;
+      @include glow;
+    }
+  }
+
+  &__dots {
+    @include flex(row, center, center);
+    gap: $spacing-sm;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: $border-radius-full;
+    background: rgba($color-gold, 0.3);
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &.active {
+      background: $color-gold;
+      width: 24px;
+      box-shadow: 0 0 8px rgba($color-gold, 0.6);
+    }
+  }
+}
+
+.character-card {
+  @include card-base;
+  min-width: 280px;
+  max-width: 280px;
+  padding: $spacing-2xl;
+  scroll-snap-align: start;
+  text-align: center;
+  flex-shrink: 0;
+
+  @include respond-to('sm') {
+    min-width: 240px;
+    max-width: 240px;
+  }
+
+  &__avatar {
+    font-size: 3.5rem;
+    margin-bottom: $spacing-lg;
+    display: block;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  &__name {
+    @include heading($font-size-lg);
+    color: $color-parchment;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__house {
+    font-family: $font-display;
+    font-size: $font-size-xs;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $border-radius-full;
+    display: inline-block;
+    margin-bottom: $spacing-lg;
+
+    &.house--gryffindor {
+      background: rgba($gryffindor-red, 0.2);
+      color: $gryffindor-gold;
+      border: 1px solid rgba($gryffindor-red, 0.4);
+    }
+    &.house--slytherin {
+      background: rgba($slytherin-green, 0.2);
+      color: $slytherin-silver;
+      border: 1px solid rgba($slytherin-green, 0.4);
+    }
+    &.house--ravenclaw {
+      background: rgba($ravenclaw-blue, 0.3);
+      color: $ravenclaw-bronze;
+      border: 1px solid rgba($ravenclaw-blue, 0.5);
+    }
+    &.house--hufflepuff {
+      background: rgba($hufflepuff-yellow, 0.15);
+      color: $hufflepuff-yellow;
+      border: 1px solid rgba($hufflepuff-yellow, 0.3);
+    }
+  }
+
+  &__desc {
+    @include body-text($font-size-sm);
+    color: $color-gray-light;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__wand {
+    font-size: $font-size-sm;
+    color: rgba($color-gold, 0.7);
+    font-style: italic;
+    border-top: 1px solid rgba($color-gold, 0.1);
+    padding-top: $spacing-md;
+  }
+}
+
+// ========================
+// SPELLS
+// ========================
+.spells {
+  background: $color-dark;
+  position: relative;
+
+  &::before {
+    content: '';
+    @include absolute-fill;
+    background: radial-gradient(ellipse at 50% 50%, rgba($color-gold, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  &__grid {
+    @include grid(3, $spacing-xl);
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('sm') {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.spell-card {
+  @include card-base;
+  padding: $spacing-2xl;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+  &__glow {
+    @include absolute-fill;
+    background: radial-gradient(ellipse at 50% 0%, rgba($color-gold, 0.1), transparent 60%);
+    opacity: 0;
+    transition: opacity $transition-base;
+    pointer-events: none;
+  }
+
+  &:hover .spell-card__glow,
+  &.active .spell-card__glow {
+    opacity: 1;
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: $spacing-lg;
+    transition: transform $transition-bounce;
+  }
+
+  &:hover &__icon,
+  &.active &__icon {
+    transform: scale(1.3) rotate(10deg);
+    animation: wand-sparkle 1s ease;
+  }
+
+  &__name {
+    @include heading($font-size-lg);
+    color: $color-gold;
+    margin-bottom: $spacing-sm;
+    font-style: italic;
+  }
+
+  &__type {
+    font-family: $font-display;
+    font-size: $font-size-xs;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-gray;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__info {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height $transition-slow, opacity $transition-base;
+    opacity: 0;
+
+    p {
+      @include body-text($font-size-sm);
+      color: $color-gray-light;
+      padding-top: $spacing-md;
+      border-top: 1px solid rgba($color-gold, 0.15);
+    }
+  }
+
+  &.active &__info {
+    max-height: 200px;
+    opacity: 1;
+  }
+}
+
+// ========================
+// BOOKS TIMELINE
+// ========================
+.books {
+  background: $color-dark-2;
+  position: relative;
+
+  &__timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 40px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, $color-gold, $color-gold, transparent);
+
+      @include respond-to('sm') {
+        left: 20px;
+      }
+    }
+  }
+}
+
+.book-item {
+  @include flex(row, flex-start, flex-start);
+  gap: $spacing-xl;
+  margin-bottom: $spacing-3xl;
+  position: relative;
+  padding-left: $spacing-xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__number {
+    @include flex-center;
+    min-width: 64px;
+    height: 64px;
+    border-radius: $border-radius-full;
+    background: linear-gradient(135deg, $color-gold-dark, $color-gold);
+    color: $color-dark;
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    font-weight: 700;
+    box-shadow: $shadow-gold;
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    transition: all $transition-bounce;
+
+    @include respond-to('sm') {
+      min-width: 48px;
+      height: 48px;
+      font-size: $font-size-base;
+    }
+  }
+
+  &:hover &__number {
+    transform: scale(1.15);
+    box-shadow: $shadow-gold-lg;
+  }
+
+  &__content {
+    background: rgba($color-dark-3, 0.6);
+    border: 1px solid rgba($color-gold, 0.1);
+    border-radius: $border-radius-lg;
+    padding: $spacing-xl;
+    flex: 1;
+    transition: all $transition-base;
+
+    &:hover {
+      border-color: rgba($color-gold, 0.3);
+      background: rgba($color-dark-3, 0.9);
+      transform: translateX(4px);
+    }
+  }
+
+  &__year {
+    font-family: $font-display;
+    font-size: $font-size-xs;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-gold;
+    margin-bottom: $spacing-sm;
+    display: block;
+  }
+
+  &__title {
+    @include heading($font-size-xl);
+    color: $color-parchment;
+    margin-bottom: $spacing-md;
+
+    @include respond-to('sm') {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__desc {
+    @include body-text;
+    color: $color-gray-light;
+  }
+}
+
+// ========================
+// QUOTE SECTION
+// ========================
+.quote-section {
+  background: linear-gradient(135deg, rgba($color-gold-dark, 0.15), rgba($color-dark-3, 0.8), rgba($color-gold-dark, 0.1));
+  border-top: 1px solid rgba($color-gold, 0.2);
+  border-bottom: 1px solid rgba($color-gold, 0.2);
+  padding: $spacing-5xl 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '"';
+    position: absolute;
+    top: -40px;
+    left: 5%;
+    font-family: $font-display;
+    font-size: 20rem;
+    color: rgba($color-gold, 0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  &__content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__wand {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-xl;
+    display: block;
+    animation: wand-sparkle 4s ease-in-out infinite;
+  }
+
+  &__text {
+    font-family: $font-body;
+    font-size: clamp($font-size-xl, 3vw, $font-size-3xl);
+    font-style: italic;
+    color: $color-parchment;
+    line-height: 1.5;
+    margin-bottom: $spacing-xl;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__author {
+    font-family: $font-display;
+    font-size: $font-size-md;
+    letter-spacing: 0.1em;
+    color: $color-gold;
+    @include text-glow;
+  }
+}
+
+// ========================
+// CTA SECTION
+// ========================
+.cta {
+  background: $color-dark;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    @include absolute-fill;
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba($color-gold, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 50%, rgba($color-gold, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  &__content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__tag {
+    display: inline-block;
+    font-family: $font-display;
+    font-size: $font-size-xs;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-gold;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__title {
+    @include heading($font-size-3xl);
+    color: $color-parchment;
+    margin-bottom: $spacing-lg;
+
+    @include respond-to('md') {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__desc {
+    @include body-text($font-size-lg);
+    color: $color-gray-light;
+    margin-bottom: $spacing-3xl;
+  }
+
+  &__form {
+    @include flex(column, flex-start, stretch);
+    gap: $spacing-lg;
+  }
+
+  &__form-group {
+    width: 100%;
+  }
+
+  &__input {
+    width: 100%;
+    padding: $spacing-md $spacing-xl;
+    background: rgba($color-dark-3, 0.8);
+    border: 1px solid rgba($color-gold, 0.2);
+    border-radius: $border-radius-full;
+    color: $color-parchment;
+    font-family: $font-body;
+    font-size: $font-size-md;
+    transition: all $transition-base;
+
+    &::placeholder {
+      color: $color-gray;
+    }
+
+    &:focus {
+      border-color: rgba($color-gold, 0.6);
+      background: rgba($color-dark-3, 0.95);
+      box-shadow: 0 0 0 3px rgba($color-gold, 0.1);
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    justify-content: center;
+    padding: $spacing-lg $spacing-2xl;
+    font-size: $font-size-md;
+  }
+
+  &__success {
+    display: none;
+    @include flex(column, center, center);
+    gap: $spacing-md;
+    padding: $spacing-2xl;
+    background: rgba($color-gold, 0.1);
+    border: 1px solid rgba($color-gold, 0.3);
+    border-radius: $border-radius-lg;
+    color: $color-gold;
+    font-family: $font-display;
+    font-size: $font-size-lg;
+    animation: scaleIn 0.5s ease;
+
+    &.visible {
+      display: flex;
+    }
+
+    &-icon {
+      font-size: 2.5rem;
+      animation: wand-sparkle 2s infinite;
+    }
+  }
+}
+
+// ========================
+// FOOTER
+// ========================
+.footer {
+  background: $color-dark-2;
+  border-top: 1px solid rgba($color-gold, 0.15);
+  padding: $spacing-4xl 0 $spacing-xl;
+
+  &__grid {
+    @include grid(4, $spacing-3xl);
+    margin-bottom: $spacing-3xl;
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('sm') {
+      grid-template-columns: 1fr;
+      gap: $spacing-2xl;
+    }
+  }
+
+  &__logo {
+    font-family: $font-display;
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: $color-gold;
+    text-decoration: none;
+    display: block;
+    margin-bottom: $spacing-lg;
+    transition: all $transition-base;
+
+    &:hover {
+      color: $color-gold-light;
+      @include text-glow;
+    }
+  }
+
+  &__tagline {
+    @include body-text;
+    color: $color-gray;
+    font-style: italic;
+  }
+
+  &__title {
+    @include heading($font-size-sm);
+    color: $color-gold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__links {
+    ul {
+      @include flex(column, flex-start, flex-start);
+      gap: $spacing-md;
+    }
+
+    a {
+      @include body-text;
+      color: $color-gray-light;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $color-gold;
+      }
+    }
+  }
+
+  &__spell {
+    @include body-text($font-size-lg);
+    color: $color-gold;
+    font-style: italic;
+    @include text-glow;
+    animation: pulse-text 3s ease infinite;
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba($color-gold, 0.1);
+    padding-top: $spacing-xl;
+    text-align: center;
+
+    p {
+      @include body-text($font-size-sm);
+      color: $color-gray;
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  &__disclaimer {
+    font-size: $font-size-xs !important;
+    color: rgba($color-gray, 0.6) !important;
+  }
+}

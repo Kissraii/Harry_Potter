@@ -1,0 +1,203 @@
+// ============================================================
+// HARRY POTTER — MIXINS SASS
+// ============================================================
+
+// --- Responsividade ---
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'xs' {
+    @media (max-width: #{$bp-xs}) { @content; }
+  } @else if $breakpoint == 'sm' {
+    @media (max-width: #{$bp-sm}) { @content; }
+  } @else if $breakpoint == 'md' {
+    @media (max-width: #{$bp-md}) { @content; }
+  } @else if $breakpoint == 'lg' {
+    @media (max-width: #{$bp-lg}) { @content; }
+  } @else if $breakpoint == 'xl' {
+    @media (max-width: #{$bp-xl}) { @content; }
+  }
+}
+
+@mixin respond-min($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: #{$bp-sm}) { @content; }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: #{$bp-md}) { @content; }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: #{$bp-lg}) { @content; }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: #{$bp-xl}) { @content; }
+  }
+}
+
+// --- Flex ---
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// --- Grid ---
+@mixin grid($cols: 1, $gap: $spacing-xl) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+}
+
+// --- Posicionamento ---
+@mixin absolute-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// --- Tipografia ---
+@mixin heading($size: $font-size-2xl, $weight: 700) {
+  font-family: $font-display;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+@mixin body-text($size: $font-size-base) {
+  font-family: $font-body;
+  font-size: $size;
+  line-height: 1.7;
+}
+
+// --- Gradientes Mágicos ---
+@mixin gradient-gold {
+  background: linear-gradient(135deg, $color-gold-dark, $color-gold, $color-gold-light, $color-gold);
+}
+
+@mixin gradient-dark {
+  background: linear-gradient(180deg, $color-dark 0%, $color-dark-3 100%);
+}
+
+@mixin gradient-hero {
+  background: radial-gradient(ellipse at 50% 0%, rgba(211, 166, 37, 0.15) 0%, transparent 60%),
+              linear-gradient(180deg, $color-dark 0%, $color-dark-2 100%);
+}
+
+@mixin text-gradient($from: $color-gold, $to: $color-gold-light) {
+  background: linear-gradient(135deg, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// --- Efeito Brilho ---
+@mixin glow($color: $color-gold, $intensity: 0.5) {
+  box-shadow: 0 0 20px rgba($color, $intensity),
+              0 0 40px rgba($color, $intensity * 0.5);
+}
+
+@mixin text-glow($color: $color-gold) {
+  text-shadow: 0 0 10px rgba($color, 0.8),
+               0 0 20px rgba($color, 0.4);
+}
+
+// --- Bordas Mágicas ---
+@mixin magic-border($color: $color-gold) {
+  border: 1px solid rgba($color, 0.3);
+  position: relative;
+
+  &::before {
+    content: '';
+    @include absolute-fill;
+    border-radius: inherit;
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, rgba($color, 0.5), transparent, rgba($color, 0.3)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+// --- Card Base ---
+@mixin card-base {
+  background: rgba($color-dark-3, 0.8);
+  border-radius: $border-radius-lg;
+  border: 1px solid rgba($color-gold, 0.15);
+  backdrop-filter: blur(10px);
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba($color-gold, 0.4);
+    box-shadow: $shadow-lg, $shadow-gold;
+  }
+}
+
+// --- Botão Base ---
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-xl;
+  border-radius: $border-radius-full;
+  font-family: $font-display;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: all $transition-base;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+// --- Scrollbar Customizada ---
+@mixin custom-scrollbar($track: $color-dark-2, $thumb: $color-gold-dark) {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: $border-radius-full;
+  }
+}
+
+// --- Truncar Texto ---
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// --- Animação de Entrada ---
+@mixin fade-in-up($delay: 0s, $duration: 0.6s) {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp $duration ease forwards;
+  animation-delay: $delay;
+}

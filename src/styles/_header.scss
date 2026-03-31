@@ -1,0 +1,162 @@
+// ============================================================
+// HARRY POTTER — HEADER & NAVEGAÇÃO
+// ============================================================
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  padding: $spacing-lg 0;
+  transition: all $transition-base;
+
+  &.scrolled {
+    background: rgba($color-dark, 0.95);
+    backdrop-filter: blur(20px);
+    padding: $spacing-md 0;
+    border-bottom: 1px solid rgba($color-gold, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.nav {
+  @include flex(row, space-between, center);
+
+  &__logo {
+    @include flex(row, flex-start, center);
+    gap: $spacing-sm;
+    font-family: $font-display;
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: $color-gold;
+    text-decoration: none;
+    transition: all $transition-base;
+
+    &:hover {
+      color: $color-gold-light;
+      @include text-glow;
+    }
+
+    &-icon {
+      font-size: $font-size-2xl;
+      animation: wand-sparkle 4s infinite;
+    }
+
+    &-text {
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &__list {
+    @include flex(row, flex-end, center);
+    gap: $spacing-xl;
+
+    @include respond-to('lg') {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: rgba($color-dark-2, 0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      justify-content: center;
+      gap: $spacing-xl;
+      padding: $spacing-3xl;
+      border-left: 1px solid rgba($color-gold, 0.2);
+      transition: right $transition-slow;
+      z-index: $z-modal;
+
+      &.open {
+        right: 0;
+      }
+    }
+  }
+
+  &__link {
+    font-family: $font-display;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-gray-light;
+    text-decoration: none;
+    position: relative;
+    transition: color $transition-base;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, $color-gold, $color-gold-light);
+      transition: width $transition-base;
+      border-radius: $border-radius-full;
+    }
+
+    &:hover,
+    &.active {
+      color: $color-gold;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    @include respond-to('lg') {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: $spacing-sm;
+    z-index: $z-modal + 1;
+    position: relative;
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: $color-gold;
+      border-radius: $border-radius-full;
+      transition: all $transition-base;
+    }
+
+    &.open {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+
+    @include respond-to('lg') {
+      display: flex;
+    }
+  }
+}
+
+// Overlay do menu mobile
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba($color-dark, 0.7);
+  z-index: $z-modal - 1;
+  backdrop-filter: blur(4px);
+
+  &.open {
+    display: block;
+  }
+}
