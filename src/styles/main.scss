@@ -207,7 +207,7 @@ $container-padding:   1.5rem;
 
 @mixin text-glow($color: $color-gold) {
   text-shadow: 0 0 10px rgba($color, 0.8),
-               0 0 20px rgba($color, 0.4);
+              0 0 20px rgba($color, 0.4);
 }
 
 // --- Bordas Mágicas ---
