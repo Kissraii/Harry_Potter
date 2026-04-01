@@ -27,11 +27,11 @@ const paths = {
     "build": "vite build",
     src:   'src/styles/main.scss',
     watch: 'src/scss/**/*.scss',
-    dest:  'dist/css/',
+    dest:  './dist/css/',
   },
   scripts: {
     src:   'src/js/**/*.js',
-    dest:  'dist/js/',
+    dest:  './dist/js/',
   },
   images: {
     src:   'src/images/**/*',
