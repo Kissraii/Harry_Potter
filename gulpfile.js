@@ -20,7 +20,7 @@ const fs           = require('fs');
 
 const paths = {
   html: {
-    src:  'src/index.html',
+    src:  'index.html/',
     dest: 'dist/',
   },
   styles: {
